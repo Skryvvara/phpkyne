@@ -18,30 +18,18 @@
     </head>
 
     <body class="antialiased">
-        <div id="app">
-            <nav id="main-nav">
-                <ul class="nav-list fluid inner">
-                    @foreach($nav as $item)
-                        <li class="nav-item">
-                            <a href="{{$item[1]}}"
-                               @if($item[2] === true) target="_blank" @endif>
-                                {{strtoupper($item[0])}}
-                            </a>
-                        </li>
-                    @endforeach
-                    <li class="nav-button">
-                        <a class="app-button" href="/contact">GET IN TOUCH</a>
-                    </li>
+        @include('nav')
+
+        <main id="app-body">
+            @yield('content')
+        </main>
+
+        <footer id="main-footer">
+            <div class="container flex-row">
+                <ul class="footer-list">
+                    <li>&copy; 2020 - Darkyne</li>
                 </ul>
-            </nav>
-
-            <main id="main-content">
-                @yield('content')
-            </main>
-
-            <footer id="main-footer">
-                <p>&copy;2020 <a class="app-link" href="https://darkyne.com">Darkyne</a></p>
-            </footer>
-        </div>
+            </div>
+        </footer>
     </body>
 </html>

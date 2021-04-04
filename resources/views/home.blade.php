@@ -3,66 +3,24 @@
 @section('title', 'Darkyne | Home')
 
 @section('content')
-    <div class="main-section">
-        <div class="fluid">
-            <div class="hero-wrapper">
-                <section class="half-page-hero">
-                    <div class="hero-text-container">
-                        <h1>Hello! I'm Dimitri aka. Darkyne.</h1>
-                        <p>Creating web experiences and getting to know new technologies is what I live for.
-                            Working as a specialist for system integration at <a class="app-link" href="https://pg.com">Procter & Gamble</a> and
-                            developing websites and dotNET apps I never stop improving.
-                        </p>
+    <section class="main-section primary-section">
+        <div class="flex-row">
+            <div class="container">
+                <div class="flex-col-center">
+                    <div class="primary-hero-box">
+                        <div class="primary-hero-text">
+                            <h1>Hi! I'm Dimitri - aka Darkyne</h1>
+                            <p>
+                            I'm working as a specialist for system integration at <a href="https://pg.com" target="_BLANK" class="app-link">Procter & Gamble</a>. In my free time I mostly work on websites and dotNET apps.
+                            </p>
+                        </div>
+
+                        <div class="primary-hero-button">
+                            <a href="/github" target="_BLANK" class="app-button-inverted">Check my Github! <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path d="M13 3L16.293 6.293 9.293 13.293 10.707 14.707 17.707 7.707 21 11 21 3z"/><path d="M19,19H5V5h7l-2-2H5C3.897,3,3,3.897,3,5v14c0,1.103,0.897,2,2,2h14c1.103,0,2-0.897,2-2v-5l-2-2V19z"/></svg></a>
+                        </div>
                     </div>
-                    <div class="hero-button-container">
-                        <a href="#second" class="app-button">Read about my work</a>
-                    </div>
-                </section>
+                </div>
             </div>
         </div>
-    </div>
-
-    <div class="main-section" id="second">
-        <div class="fluid">
-            <div class="hero-wrapper">
-                <section class="half-page-hero">
-                    <div class="hero-text-container">
-                        <h1>Sorry, but...</h1>
-                        <p>...the part you are looking for is not finished yet.
-                            but you can checkout the repository for this website!
-                        </p>
-                    </div>
-                    <div class="hero-button-container">
-                        <a href="https://github.com/xdarkyne/darkyne.com" target="_blank" class="app-button">Take me to the Repo</a>
-                    </div>
-                </section>
-
-                <section class="half-page-hero">
-                    <div class="hero-text-container">
-                        <h1>Or you can...</h1>
-                        <p>...click this cool button I use to test this website!</p>
-                    </div>
-                    <div class="hero-button-container">
-                        <a href="#last" class="app-button">Click me</a>
-                    </div>
-                </section>
-            </div>
-        </div>
-    </div>
-
-    <div class="main-section" id="last">
-        <div class="fluid">
-            <div class="hero-wrapper">
-                <section class="half-page-hero">
-                    <div class="hero-text-container">
-                        <h1>Looks good right?</h1>
-                        <p>Now consider checking out my other projects</p>
-                    </div>
-                    <div class="hero-button-container">
-                        <a href="/github" class="app-button">Take me to GitHub</a>
-                    </div>
-                </section>
-            </div>
-        </div>
-    </div>
+    </section>
 @endsection

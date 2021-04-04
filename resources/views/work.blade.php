@@ -3,41 +3,24 @@
 @section('title', 'Darkyne | Work')
 
 @section('content')
-    <div class="main-section">
-        <div class="fluid">
-            <div class="hero-wrapper">
-                <section class="half-page-hero">
-                    <div class="hero-text-container">
-                        <h1>Here are some of my best projects!</h1>
-                        <p>Those are just my favorites, there are more.</p>
-                    </div>
-                    @foreach($projects as $project)
-                        <div class="project-card">
-                            <div class="project-header">
-                                <h2>{{$project->projectName}}</h2>
-                            </div>
-                            <div class="project-body">
-                                <p>{{$project->projectDesc}}</p>
-                            </div>
-                            <div class="project-link">
-                                <a href="{{$project->projectUrl}}" class="app-button">Show me the code!</a>
-                            </div>
-                        </div>
-                    @endforeach
-                </section>
-
-                <section class="half-page-hero">
-                    <div class="hero-text-container">
-                        <h1>Can't find what you were looking for?</h1>
-                        <p>You can still browse my GitHub for all of my projects.</p>
-                    </div>
-                    <div class="hero-button-container">
-                        <div class="hero-button-container">
-                            <a href="/github" class="app-button">BROWSE MY GITHUB INSTEAD</a>
-                        </div>
-                    </div>
-                </section>
+    <section class="main-section">
+        <div class="container">
+            <div class="project-grid">
+            @foreach($projects as $project)
+            <div class="project-card">
+                <div class="project-header">
+                    <h2>{{$project->projectName}}</h2>
+                    <span class="tag tag-{{$project->projectTag}}">{{strtoupper($project->projectTag)}}</span>
+                </div>
+                <div class="project-body">
+                    <p>{{$project->projectDesc}}</p>
+                </div>
+                <div class="project-footer">
+                    <a href="{{$project->projectUrl}}" class="app-button">Show me the code!<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path d="M13 3L16.293 6.293 9.293 13.293 10.707 14.707 17.707 7.707 21 11 21 3z"/><path d="M19,19H5V5h7l-2-2H5C3.897,3,3,3.897,3,5v14c0,1.103,0.897,2,2,2h14c1.103,0,2-0.897,2-2v-5l-2-2V19z"/></svg></a>
+                </div>
+            </div>
+            @endforeach
             </div>
         </div>
-    </div>
+    </section>
 @endsection

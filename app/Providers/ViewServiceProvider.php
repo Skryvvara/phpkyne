@@ -10,6 +10,6 @@ use Illuminate\Support\Facades\View;
 class ViewServiceProvider extends ServiceProvider
 {
     public function boot(): void {
-        View::composer('base', BaseComposer::class);
+        View::composer('nav', BaseComposer::class);
     }
 }

@@ -17,11 +17,12 @@ class HomeController extends Controller
         return view('work')->with('projects', $projects);
     }
 
-    public function eso() {
-        return view('eso');
-    }
-
     public function contact() {
         return view('contact');
+    }
+
+    public function game() {
+        $questions = ["Question 1", "Question 2", "Question 3", "Question 4", "Question 5"];
+        return view('game')->with('questions', $questions);
     }
 }

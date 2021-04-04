@@ -18,9 +18,9 @@ Route::get('/', [HomeController::class, 'home']);
 
 Route::get('/work', [HomeController::class, 'work']);
 
-Route::get('/eso', [HomeController::class, 'eso']);
-
 Route::get('/contact', [HomeController::class, 'contact']);
+
+Route::get('/game', [HomeController::class, 'game']);
 
 Route::get('/github', static function() {
    return redirect('https://github.com/xdarkyne');

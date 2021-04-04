@@ -11,7 +11,6 @@ class BaseComposer
         $nav = [
             ['home', '/', false],
             ['work', '/work', false],
-            ['eso', '/eso', false],
             ['github', '/github', true]
         ];
 
