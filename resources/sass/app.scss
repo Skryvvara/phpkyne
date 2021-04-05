@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
 
+
+
 /* ======== VARIABLES ======== */
 $header-height: 80px;
 $half-header-height: 40px;
@@ -8,6 +10,9 @@ $max-body-width: 1250px;
 $app-main-color: #191919;
 $app-secondary-color: #292929;
 $combined-element-height: calc(var($header-height) + var($header-height) + 20px);
+/* ======== VARIABLES ======== */
+
+
 
 /* ======== CSS RESET & GENERAL STYLE ======== */
 * {
@@ -21,8 +26,6 @@ $combined-element-height: calc(var($header-height) + var($header-height) + 20px)
 
     color: #292929;
 }
-
-/* ======== BASE STYLE ======== */
 
 .container {
     height: inherit;
@@ -52,13 +55,31 @@ $combined-element-height: calc(var($header-height) + var($header-height) + 20px)
     justify-content: flex-end;
     align-items: center;
 }
-
 .flex-col-center {
     height: inherit;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.main-section {
+    padding-top: $header-safe-height;
+    padding-bottom: $half-header-height;
+}
+.main-section:last-child {
+    min-height: calc(100vh - #{$header-height});
+}
+
+.section-title {
+    font-size: 1.2em;
+    margin-bottom: 10px;
 }
 
 .app-button {
@@ -71,6 +92,12 @@ $combined-element-height: calc(var($header-height) + var($header-height) + 20px)
     font-weight: bold;
     border-radius: 4px;
     transition: all 300ms;
+
+    svg {
+        margin-left: 5px;
+        color: white;
+        fill: white;
+    }
 }
 .app-button:hover {
     background: $app-secondary-color;
@@ -96,8 +123,47 @@ $combined-element-height: calc(var($header-height) + var($header-height) + 20px)
     text-decoration: underline;
 }
 
-/* NAVBAR */
+.icon-button {
+    width: fit-content;
+    padding: 5px;
+    border-radius: 4px;
 
+    svg {
+        height: 48px;
+        width: 48px;
+    }
+}
+.icon-button-discord {
+    background: #7289DA;
+
+    svg {
+        color: white;
+        fill: white;
+    }
+}
+.icon-button-mail {
+    background: #99AAB5;
+
+    svg {
+        color: white;
+        fill: white;
+    }
+}
+
+.warning-banner {
+    background: #fc6551;
+    padding: 10px 5px;
+    margin-bottom: 15px;
+
+    h1, p {
+        color: white;
+    }
+}
+/* ======== CSS RESET & GENERAL STYLE ======== */
+
+
+
+/* ======== NAVBAR ======== */
 #main-nav {
     height: $header-height;
     width: 100%;
@@ -115,8 +181,6 @@ $combined-element-height: calc(var($header-height) + var($header-height) + 20px)
         img {
             height: 64px;
             width: 64px;
-            border: 1px solid white;
-            border-radius: 50px;
         }
     }
 }
@@ -157,22 +221,41 @@ $combined-element-height: calc(var($header-height) + var($header-height) + 20px)
         color: transparent;
     }
 }
+/* ======== NAVBAR ======== */
 
-/* NAVBAR */
 
-.main-section {
-    padding-top: $header-safe-height;
-    padding-bottom: $half-header-height;
+
+/* ======== FOOTER ======== */
+#main-footer {
+    height: $header-height;
+    background: #393933;
+    
+    .footer-list {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        li {
+            color: white;
+        }
+        li::after {
+            content: '/';
+            color: white;
+            opacity: 0.5;
+            margin: 0 5px;
+        }
+        li:last-child::after {
+            display: none;
+        }
+    }
 }
-.main-section:last-child {
-    min-height: calc(100vh - #{$header-height});
-}
+/* ======== FOOTER ======== */
 
-.section-title {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-}
 
+
+/* ======== HOME-PAGE ======== */
 .primary-section {
     height: 75vh;
     padding-top: $header-height;
@@ -201,10 +284,22 @@ $combined-element-height: calc(var($header-height) + var($header-height) + 20px)
             font-size: 1.35em;
         }
     }
+
+    .primary-hero-button {
+        display: flex;
+        align-items: center;
+
+        p {
+            color: white;
+            margin: 0 10px;
+        }
+    }
 }
+/* ======== HOME-PAGE ======== */
 
-/* WORK */
 
+
+/* ======== WORK-PAGE ======== */
 .project-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -217,10 +312,11 @@ $combined-element-height: calc(var($header-height) + var($header-height) + 20px)
         border-radius: 4px;
 
         .project-header {
-            padding: 5px 5px;
+            padding: 10px 5px;
             font-size: 1.1em;
             display: flex;
             align-items: center;
+            border-bottom: 1px solid lightgray;
 
             .tag {
                 margin-left: auto;
@@ -232,30 +328,21 @@ $combined-element-height: calc(var($header-height) + var($header-height) + 20px)
         }
 
         .project-body {
-            margin-top: 7px;
-            margin-bottom: 7px;
-            padding: 5px 5px;
+            padding: 15px 5px;
         }
 
         .project-footer {
             background: #dfdfdf;
             margin-top: auto;
-            padding: 7px 5px;
-
-            a {
-                svg {
-                    margin-left: 5px;
-                    color: white;
-                    fill: white;
-                }
-            }
+            padding: 10px 5px;
         }
     }
 }
+/* ======== WORK-PAGE ======== */
 
-/* WORK */
 
-/* CONTACT */
+
+/* ======== CONTACT-PAGE ======== */
 .half-size-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -270,9 +357,10 @@ $combined-element-height: calc(var($header-height) + var($header-height) + 20px)
     input, textarea {
         padding: 5px;
         border: 1px solid rgba(100, 100, 100, 0.5);
+        appearance: none;
     }
     input[type="text"], input[type="email"], textarea {
-
+        outline: none;
     }
     textarea {
         resize: vertical;
@@ -284,7 +372,7 @@ $combined-element-height: calc(var($header-height) + var($header-height) + 20px)
         color: white;
         font-weight: bold;
         margin-top: 10px;
-        padding: 10px 5px;
+        padding: 15px 5px;
         cursor: pointer;
         transition: all 300ms;
     }
@@ -292,38 +380,11 @@ $combined-element-height: calc(var($header-height) + var($header-height) + 20px)
         background: $app-secondary-color;
     }
 }
+/* ======== CONTACT-PAGE ======== */
 
-.warning-banner {
-    background: #fc6551;
-    padding: 10px 5px;
 
-    h1, p {
-        color: white;
-    }
-}
-/* CONTACT */
 
-/* FOOTER */
-
-#main-footer {
-    height: $header-height;
-    background: #393933;
-    
-    .footer-list {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-
-        li {
-            color: white;
-        }
-    }
-}
-
-/* FOOTER */
-
+/* ======== TABLETS & MEDIUM SIZED SCREENS ======== */
 @media only screen and (min-width: 600px) and (max-width: 1000px) {
     .primary-hero-box {
         width: 75%;
@@ -335,6 +396,11 @@ $combined-element-height: calc(var($header-height) + var($header-height) + 20px)
         grid-gap: 25px;
     }
 }
+/* ======== TABLETS & MEDIUM SIZED SCREENS ======== */
+
+
+
+/* ======== PHONES & SMALL SIZED SCREENS  ======== */
 @media only screen and (max-width: 600px) {
     .nav-logo {
         display: none;
@@ -360,3 +426,4 @@ $combined-element-height: calc(var($header-height) + var($header-height) + 20px)
         grid-template-rows: 1fr 1fr;
     }
 }
+/* ======== PHONES & SMALL SIZED SCREENS  ======== */

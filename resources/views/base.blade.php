@@ -18,7 +18,7 @@
     </head>
 
     <body class="antialiased">
-        @include('nav')
+        @include('components/nav')
 
         <main id="app-body">
             @yield('content')
@@ -27,7 +27,8 @@
         <footer id="main-footer">
             <div class="container flex-row">
                 <ul class="footer-list">
-                    <li>&copy; 2020 - Darkyne</li>
+                    <li>&copy; 2021 - <a href="/" class="app-link">Darkyne</a></li>
+                    <li><a href="/contact" class="app-link">Contact</a></li>
                 </ul>
             </div>
         </footer>
