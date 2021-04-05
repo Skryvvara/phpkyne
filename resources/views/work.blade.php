@@ -5,6 +5,7 @@
 @section('content')
     <section class="main-section">
         <div class="container">
+            <h1 class="section-title">Projects</h1>
             <div class="project-grid">
             @foreach($projects as $project)
             <div class="project-card">

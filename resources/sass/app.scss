@@ -2,9 +2,11 @@
 
 /* ======== VARIABLES ======== */
 $header-height: 80px;
+$half-header-height: 40px;
+$header-safe-height: 120px;
 $max-body-width: 1250px;
-$app-main-color: #9575cd;
-$app-secondary-color: #65499c;
+$app-main-color: #191919;
+$app-secondary-color: #292929;
 $combined-element-height: calc(var($header-height) + var($header-height) + 20px);
 
 /* ======== CSS RESET & GENERAL STYLE ======== */
@@ -63,7 +65,7 @@ $combined-element-height: calc(var($header-height) + var($header-height) + 20px)
     width: max-content;
     display: flex;
     align-items: center;
-    background: #191919;
+    background: $app-main-color;
     color: white;
     padding: 10px 15px;
     font-weight: bold;
@@ -71,7 +73,7 @@ $combined-element-height: calc(var($header-height) + var($header-height) + 20px)
     transition: all 300ms;
 }
 .app-button:hover {
-    background: #393939;
+    background: $app-secondary-color;
 } 
 
 .app-button-inverted {
@@ -79,7 +81,7 @@ $combined-element-height: calc(var($header-height) + var($header-height) + 20px)
     display: flex;
     align-items: center;
     background: white;
-    color: #191919;
+    color: $app-main-color;
     padding: 10px 15px;
     font-weight: bold;
     border-radius: 4px;
@@ -159,10 +161,16 @@ $combined-element-height: calc(var($header-height) + var($header-height) + 20px)
 /* NAVBAR */
 
 .main-section {
-    padding-top: $header-height;
+    padding-top: $header-safe-height;
+    padding-bottom: $half-header-height;
 }
 .main-section:last-child {
     min-height: calc(100vh - #{$header-height});
+}
+
+.section-title {
+    font-size: 1.2em;
+    margin-bottom: 10px;
 }
 
 .primary-section {
@@ -198,8 +206,6 @@ $combined-element-height: calc(var($header-height) + var($header-height) + 20px)
 /* WORK */
 
 .project-grid {
-    padding-top: 80px;
-    padding-bottom: 80px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 10px;
@@ -249,6 +255,54 @@ $combined-element-height: calc(var($header-height) + var($header-height) + 20px)
 
 /* WORK */
 
+/* CONTACT */
+.half-size-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+    
+    input, textarea {
+        padding: 5px;
+        border: 1px solid rgba(100, 100, 100, 0.5);
+    }
+    input[type="text"], input[type="email"], textarea {
+
+    }
+    textarea {
+        resize: vertical;
+        height: 250px;
+        max-height: 500px;
+    }
+    input[type="submit"] {
+        background: $app-main-color;
+        color: white;
+        font-weight: bold;
+        margin-top: 10px;
+        padding: 10px 5px;
+        cursor: pointer;
+        transition: all 300ms;
+    }
+    input[type="submit"]:hover{
+        background: $app-secondary-color;
+    }
+}
+
+.warning-banner {
+    background: #fc6551;
+    padding: 10px 5px;
+
+    h1, p {
+        color: white;
+    }
+}
+/* CONTACT */
+
 /* FOOTER */
 
 #main-footer {
@@ -276,23 +330,33 @@ $combined-element-height: calc(var($header-height) + var($header-height) + 20px)
     }
 
     .project-grid {
-        padding-top: 40px;
-        padding-bottom: 40px;
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-gap: 25px;
     }
 }
 @media only screen and (max-width: 600px) {
+    .nav-logo {
+        display: none;
+    }
+    .nav-list {
+        li::before {
+            margin: 5px;
+        }
+    }
+
     .primary-hero-box {
         width: 100%;
     }
 
     .project-grid {
-        padding-top: 40px;
-        padding-bottom: 40px;
         display: grid;
         grid-template-columns: 1fr;
         grid-gap: 10px;
+    }
+
+    .half-size-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
     }
 }

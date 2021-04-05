@@ -1,9 +1,13 @@
 const AllQuestions = GameArray;
 var sessQuestions = [];
 
-(function() {
+document.addEventListener("DOMContentLoaded", function() {
     init();
-})();
+    let nextbutton = document.getElementById('nextbutton');
+    nextbutton.addEventListener("click", function() {
+        init();
+    })
+})
 
 function init() {
     if (sessQuestions.length <= 0) {
@@ -30,8 +34,4 @@ function setQuestionText(index) {
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
-}
-
-window.getNextQuestion = function() {
-    init();
 }

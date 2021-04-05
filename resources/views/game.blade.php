@@ -31,7 +31,7 @@
                 </div>
 
                 <div class="game-button">
-                    <button onClick="getNextQuestion()">NEXT QUESTION</button>
+                    <button id="nextbutton">NEXT QUESTION</button>
                 </div>
             </div>
         </main>
