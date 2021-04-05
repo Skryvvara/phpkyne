@@ -124,7 +124,7 @@ $combined-element-height: calc(var($header-height) + var($header-height) + 20px)
 }
 
 .icon-button {
-    width: fit-content;
+    width: max-content;
     padding: 5px;
     border-radius: 4px;
 
@@ -143,6 +143,14 @@ $combined-element-height: calc(var($header-height) + var($header-height) + 20px)
 }
 .icon-button-mail {
     background: #99AAB5;
+
+    svg {
+        color: white;
+        fill: white;
+    }
+}
+.icon-button-twitter {
+    background: #1DA1F2;
 
     svg {
         color: white;

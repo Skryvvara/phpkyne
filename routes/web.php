@@ -28,3 +28,6 @@ Route::get('/github', static function() {
 Route::get('/discord', static function() {
    return redirect('https://discord.gg/2JjnKs5sqP');
 });
+Route::get('/twitter', static function() {
+   return redirect('https://twitter.com/xDarkyne');
+});
