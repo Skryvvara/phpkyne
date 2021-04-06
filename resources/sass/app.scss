@@ -179,6 +179,7 @@ $combined-element-height: calc(var($header-height) + var($header-height) + 20px)
     backdrop-filter: saturate(100%) blur(4px);
     position: fixed;
     z-index: 999;
+    margin-bottom: env(--safe-area-inset-top);
 }
 
 .nav-logo {
@@ -219,14 +220,14 @@ $combined-element-height: calc(var($header-height) + var($header-height) + 20px)
             }
         }
     }
-    li::before {
+    li::after {
         content: '/';
         color: white;
         margin: 10px;
         opacity: 0.5;
     }
-    li:first-child::before {
-        color: transparent;
+    li:last-child::after {
+        display: none;
     }
 }
 /* ======== NAVBAR ======== */
@@ -237,6 +238,7 @@ $combined-element-height: calc(var($header-height) + var($header-height) + 20px)
 #main-footer {
     height: $header-height;
     background: #393933;
+    margin-top: env(--safe-area-inset-bottom);
     
     .footer-list {
         width: 100%;
