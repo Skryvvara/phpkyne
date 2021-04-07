@@ -32,18 +32,12 @@
                 </div>
 
                 <div class="game-button">
-                    <button id="nextbutton">NEXT QUESTION</button>
+                    <button id="nextbutton" class="app-button-inverted" >NEXT QUESTION</button>
                 </div>
             </div>
         </main>
 
-        <footer id="main-footer">
-            <div class="container flex-row">
-                <ul class="footer-list">
-                    <li>&copy; 2020 - Darkyne</li>
-                </ul>
-            </div>
-        </footer>
+        @include('components/footer')
     </div>
 </body>
 

@@ -26,8 +26,14 @@ $gradient-bg-white: linear-gradient(rgb(255, 255, 255), rgb(245, 245, 250));
     font-family: 'Raleway', sans-serif;
     text-decoration: none;
     list-style: none;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 
     color: $app-secondary-color;
+}
+
+.mobile-unhide {
+    display: none;
 }
 
 .container {
@@ -58,12 +64,19 @@ $gradient-bg-white: linear-gradient(rgb(255, 255, 255), rgb(245, 245, 250));
     justify-content: flex-end;
     align-items: center;
 }
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
 .flex-col-center {
     height: inherit;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.flex-bottom {
+    margin-top: auto;
 }
 
 .grid-2 {
@@ -83,6 +96,9 @@ $gradient-bg-white: linear-gradient(rgb(255, 255, 255), rgb(245, 245, 250));
 .pd-10 {
     padding: 10px;
 }
+.full-height {
+    height: 100%;
+}
 
 .main-section {
     padding-top: $header-safe-height;
@@ -92,6 +108,9 @@ $gradient-bg-white: linear-gradient(rgb(255, 255, 255), rgb(245, 245, 250));
     min-height: calc(100vh - #{$header-height});
 }
 
+.section:not(:last-child) {
+    margin-bottom: 10px;
+}
 .section-title {
     font-size: 1.2em;
     margin-bottom: 10px;
@@ -154,6 +173,10 @@ form .app-button, form .app-button-inverted {
     transform: translateY(-5px);
     box-shadow: rgba(37, 44, 97, 0.15) 0px 10px 30px 0px, rgba(93, 100, 148, 0.2) 0px 4px 18px 0px;
 }
+.card-nohov:hover {
+    transform: inherit;
+    box-shadow: $app-box-shadow;
+}
 
 .icon-button {
     height: fit-content;
@@ -183,7 +206,7 @@ form .app-button, form .app-button-inverted {
 
 .warning-banner {
     background: #fc6551;
-    padding: 10px 5px;
+    padding: 10px 10px;
     margin-bottom: 15px;
     border-radius: $app-border-radius;
     box-shadow: $app-box-shadow;
@@ -221,6 +244,8 @@ form .app-button, form .app-button-inverted {
 }
 
 .nav-list {
+    display: flex;
+
     li {
         color: white;
         display: flex;
@@ -251,6 +276,54 @@ form .app-button, form .app-button-inverted {
         color: white;
         margin: 10px;
         opacity: 0.5;
+    }
+}
+
+.mobile-nav-menu {
+    height: 0px;
+    overflow: hidden;
+    background-image: $gradient-bg-white;
+    box-shadow: $app-box-shadow;
+    transition: all 300ms;
+
+    .mobile-nav-list {
+        padding: 10px 0;
+
+        .mobile-nav-item {
+            padding: 10px 0;
+
+            .mobile-nav-link {
+                font-weight: bold;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+
+                svg {
+                    margin-left: 5px;
+                }
+            }
+        }
+        .mobile-nav-item:not(:last-child) {
+            margin-bottom: 10px;
+        }
+
+        .app-button-inverted, .app-button {
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+    } 
+}
+.mobile-show {
+    height: auto!important;
+}
+
+.mobile-button-div {
+    align-items: center;
+
+    .mobile-menu-button {
+        background: none
     }
 }
 /* ======== NAVBAR ======== */
@@ -301,17 +374,19 @@ form .app-button, form .app-button-inverted {
     backdrop-filter: blur(4px);
     padding: 50px;
     border-radius: $app-border-radius;
+
+    h1, p {
+        color: white;
+    }
     
     .primary-hero-text {
         margin-bottom: 50px;
     
         h1 {
-            color: white;
             font-size: 2em;
             font-weight: bold;
         }
-        p {
-            color: white;
+        p {          
             font-size: 1.35em;
         }
     }
@@ -321,7 +396,6 @@ form .app-button, form .app-button-inverted {
         align-items: center;
 
         p {
-            color: white;
             margin: 0 10px;
         }
     }
@@ -393,12 +467,14 @@ form .app-button, form .app-button-inverted {
             font-weight: bold;
         }
         
+        input, textarea {
+            appearance: none;
+        }
         input:not(input[type="submit"]), textarea {
             padding: 5px;
             border: 1px solid rgba(100, 100, 100, 0.35);
             border-radius: $app-border-radius;
             outline: none;
-            appearance: none;
         }
         textarea {
             resize: vertical;
@@ -430,8 +506,30 @@ form .app-button, form .app-button-inverted {
 
 
 
+/* ======== BIG SIZED SCREENS ======== */
+@media only screen and (min-width: 2000px) {
+    .mobile-unhide {
+        display: none;
+    }
+
+    .container {
+        max-width: 2400px;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+}
+/* ======== BIG SIZED SCREENS ======== */
+
+
+
 /* ======== TABLETS & MEDIUM SIZED SCREENS ======== */
 @media only screen and (min-width: 600px) and (max-width: 1000px) {
+    .mobile-unhide {
+        display: none;
+    }
+
     .primary-hero-box {
         width: 75%;
     }
@@ -446,15 +544,31 @@ form .app-button, form .app-button-inverted {
 
 
 
-/* ======== PHONES & SMALL SIZED SCREENS  ======== */
-@media only screen and (max-width: 600px) {
-    .nav-logo {
+/* ======== EVERYTHING THAT'S NOT A PHONE ======== */
+@media only screen and (min-width: 600px) {
+    .mobile-unhide {
         display: none;
     }
+    .mobile-show {
+        height: 0!important;
+    }
+}
+/* ======== EVERYTHING THAT'S NOT A PHONE ======== */
+
+
+
+/* ======== PHONES & SMALL SIZED SCREENS  ======== */
+@media only screen and (max-width: 600px) {
     .nav-list {
+        display: none;
+
         li::before {
             margin: 5px;
         }
+    }
+
+    .mobile-unhide {
+        display: flex;
     }
 
     .primary-hero-box {
