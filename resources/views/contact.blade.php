@@ -1,35 +1,50 @@
 @extends('base')
 
-@section('title', 'Darkyne | Contact')
+@section('title', 'Contact')
 
 @section('content')
     <section class="main-section">
         <div class="container">
+        @if(session()->has('message'))
+            @if(session()->get('success') === false)
+                @include('components/warning-banner', ['title' => 'Warning!', 'message' => session()->get('message')])
+            @endif
+            @if(session()->get('success') === true)
+                @include('components/success-banner', ['title' => 'Success!', 'message' => session()->get('message')])
+            @endif
+        @endif
             <div class="half-size-grid">
                 <div class="half-section">
                     <div class="section">
                         <h1 class="section-title">Send me a message...</h1>
-                        @include('components/warning', ['title' => 'Warning!', 'message' => 'This form is not working yet.'])
-                        <form action="POST" class="card card-nohov form-card">
+                        <form action="{{ route('contact.submit') }}" method="POST" class="card card-nohov form-card">
+                        @csrf
+                            <div class="form-group">
+                                <label for="name">
+                                    Name
+                                </label>
+                                <input id="name" name="name" type="text" placeholder="John Smith" tabindex="1" required></input>
+                            </div>
+
                             <div class="form-group">
                                 <label for="email">
                                     Email
                                 </label>
-                                <input id="email" type="email" placeholder="your@email.com" tabindex="1"></input>
+                                <input id="email" name="email" type="email" placeholder="john.smith@example.com" tabindex="2" required></input>
                             </div>
 
                             <div class="form-group">
                                 <label for="subject">
                                     Subject
                                 </label>
-                                <input id="subject" type="text" placeholder="Subject" tabindex="2"></input>
+                                <input id="subject" name="subject" type="text" placeholder="Subject" tabindex="3"></input>
                             </div>
 
                             <div class="form-group">
                                 <label for="message">
                                     Message
                                 </label>
-                                <textarea id="message" placeholder="Message" tabindex="3"></textarea>
+                                <textarea id="message" name="message" placeholder="Message" tabindex="4"></textarea>
                             </div>
 
                             <div class="form-group">
@@ -75,7 +90,7 @@
                         </ul>
                     </section>
 
-                    <section class="section flex-bottom">
+                    <section class="section flex-bottom" id="impressum">
                         <h1 class="section-title">Impressum</h1>
                         <div class="card card-nohov pd-10">
                             <div class="form-group">
@@ -86,6 +101,7 @@
                                 <h2>Address</h2>
                                 <p>Schlesienstr. 11</p>
                                 <p>97828 Marktheidenfeld</p>
+                                <p>Germany</p>
                             </div>
                             <div class="form-group">
                                 <h2>Email</h2>

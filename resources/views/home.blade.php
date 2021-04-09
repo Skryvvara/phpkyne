@@ -1,6 +1,6 @@
 @extends('base')
 
-@section('title', 'Darkyne | Home')
+@section('title', 'Home')
 
 @section('content')
     <section class="main-section primary-section">
