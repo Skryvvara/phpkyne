@@ -24,6 +24,7 @@ class HomeController extends Controller
     public function contact() {
         return view('contact');
     }
+
     public function contactsubmit(Request $request) {
         $data = [
             'name' => $request->name,
@@ -31,22 +32,26 @@ class HomeController extends Controller
             'subject' => $request->subject,
             'message' => $request->message
         ];
-        $address = \config('values.dev_mail');
+        $address = config('values.dev_mail');
+        $message = "Message sent successfully!";
+        $success = true;
         try {
             Mail::to($address)->send(new ContactMail($data));
         } catch(\Exception $exception) {
-            return redirect()->back()->with(['message' => 'Message not sent!', 'success' => false]);
+            $message = "Message not sent!";
+            $success = false;
         }
 
         if (Mail::failures()) {
-            redirect()->back()->with(['message' => 'Message not sent!', 'success' => false]);
+            $message = "Message not sent!";
+            $success = false;
         }
 
-        return redirect()->back()->with(['message' => 'Message sent successfully!', 'success' => true]);
+        return redirect()->back()->with(['message' => $message, 'success' => $success]);
     }
 
     public function game() {
         $questions = ["Question 1", "Question 2", "Question 3", "Question 4", "Question 5"];
-        return ('game')->with('questions', $questions);
+        return view('game')->with('questions', $questions);
     }
 }

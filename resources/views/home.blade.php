@@ -3,6 +3,12 @@
 @section('title', 'Home')
 
 @section('content')
+    <!-- <section class="main-section">
+        <div class="container">
+
+        </div>
+    </section> -->
+
     <section class="main-section primary-section">
         <div class="flex-row">
             <div class="container">
