@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\MailController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 use Illuminate\Support\Facades\Mail;
@@ -20,8 +20,8 @@ use Illuminate\Support\Facades\Mail;
 Route::get('/', [HomeController::class, 'home']);
 Route::get('/work', [HomeController::class, 'work']);
 
-Route::get('/contact', [HomeController::class, 'contact']);
-Route::post('/contact', [HomeController::Class, 'contactsubmit'])->name('contact.submit');
+Route::get('/contact', [ContactController::class, 'contact']);
+Route::post('/contact', [ContactController::Class, 'contactsubmit'])->name('contact.submit');
 
 Route::get('/game', [HomeController::class, 'game']);
 

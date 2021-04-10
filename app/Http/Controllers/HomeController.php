@@ -3,11 +3,6 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Http\Request;
-use App\Mail\ContactMail;
-use Config;
-
 
 class HomeController extends Controller
 {
@@ -23,31 +18,6 @@ class HomeController extends Controller
 
     public function contact() {
         return view('contact');
-    }
-
-    public function contactsubmit(Request $request) {
-        $data = [
-            'name' => $request->name,
-            'email' => $request->email,
-            'subject' => $request->subject,
-            'message' => $request->message
-        ];
-        $address = config('values.dev_mail');
-        $message = "Message sent successfully!";
-        $success = true;
-        try {
-            Mail::to($address)->send(new ContactMail($data));
-        } catch(\Exception $exception) {
-            $message = "Message not sent!";
-            $success = false;
-        }
-
-        if (Mail::failures()) {
-            $message = "Message not sent!";
-            $success = false;
-        }
-
-        return redirect()->back()->with(['message' => $message, 'success' => $success]);
     }
 
     public function game() {

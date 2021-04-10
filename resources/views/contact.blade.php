@@ -23,28 +23,28 @@
                                 <label for="name">
                                     Name
                                 </label>
-                                <input id="name" name="name" type="text" placeholder="John Smith" tabindex="1" required></input>
+                                <input id="name" name="name" type="text" placeholder="John Smith" tabindex="1" maxlength="25" required></input>
                             </div>
 
                             <div class="form-group">
                                 <label for="email">
                                     Email
                                 </label>
-                                <input id="email" name="email" type="email" placeholder="john.smith@example.com" tabindex="2" required></input>
+                                <input id="email" name="email" type="email" placeholder="john.smith@example.com" tabindex="2" maxlength="40" required></input>
                             </div>
 
                             <div class="form-group">
                                 <label for="subject">
                                     Subject
                                 </label>
-                                <input id="subject" name="subject" type="text" placeholder="Subject" tabindex="3"></input>
+                                <input id="subject" name="subject" type="text" placeholder="Subject" tabindex="3" maxlength="50" required></input>
                             </div>
 
                             <div class="form-group">
                                 <label for="message">
                                     Message
                                 </label>
-                                <textarea id="message" name="message" placeholder="Message" tabindex="4"></textarea>
+                                <textarea id="message" name="message" placeholder="Message" tabindex="4" maxlength="750" required></textarea>
                             </div>
 
                             <div class="form-group">

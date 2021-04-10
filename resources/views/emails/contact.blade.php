@@ -2,8 +2,8 @@
 # New Message from {{ $data['name'] }}
 
 {{ $data['name'] }} ({{ $data['email'] }}) wrote: <br>
-
 @component('mail::panel')
+<h1 style="margin-bottom: 0;">{{ $data['subject'] }}</h1> <br>
 {{ $data['message'] }}
 @endcomponent
 
