@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
-@import url('../fonts/fonts.css');
 
 /* ======== VARIABLES ======== */
 $header-height: 80px;
@@ -29,7 +28,7 @@ $gradient-bg-white: linear-gradient(rgb(255, 255, 255), rgb(245, 245, 250));
     padding: 0;
 
     font-size: 1em;
-    font-family: Axiforma,arial,sans-serif;
+    font-family: Raleway,arial,sans-serif;
     text-decoration: none;
     list-style: none;
 
@@ -223,7 +222,7 @@ button { cursor: pointer; }
     background: $app-fg-light;
     color: $app-tertiary-color;
     fill: $app-tertiary-color;
-    font: 800 14px/16px Axiforma,Arial,serif;
+    font-weight: 800;
     white-space: nowrap;
 
     display: flex;
@@ -561,8 +560,6 @@ form .btn{
 /* ======== HOME-PAGE ======== */
 .primary-hero {
     height: 75vh;
-
-    //background: url('/assets/dots.svg') repeat center/auto,linear-gradient(270deg,#9f8fff 0,#7b68ee 100%);background-attachment: fixed;
     background: url('/assets/dots.svg') repeat center/auto,linear-gradient(270deg, lighten($color-brand-default, 15%) ,#{$color-brand-default} 100%);background-attachment: fixed;
     background-image: repeating-linear-gradient(45deg, hsla(253,0%,98%,0.03) 0px, hsla(253,0%,98%,0.03) 1px,transparent 1px, transparent 12px),repeating-linear-gradient(112.5deg, hsla(253,0%,98%,0.03) 0px, hsla(253,0%,98%,0.03) 1px,transparent 1px, transparent 12px),repeating-linear-gradient(22.5deg, hsla(253,0%,98%,0.03) 0px, hsla(253,0%,98%,0.03) 1px,transparent 1px, transparent 12px),repeating-linear-gradient(67.5deg, hsla(253,0%,98%,0.03) 0px, hsla(253,0%,98%,0.03) 1px,transparent 1px, transparent 12px),repeating-linear-gradient(45deg, hsla(253,0%,98%,0.03) 0px, hsla(253,0%,98%,0.03) 1px,transparent 1px, transparent 12px),repeating-linear-gradient(157.5deg, hsla(253,0%,98%,0.03) 0px, hsla(253,0%,98%,0.03) 1px,transparent 1px, transparent 12px),repeating-linear-gradient(112.5deg, hsla(253,0%,98%,0.03) 0px, hsla(253,0%,98%,0.03) 1px,transparent 1px, transparent 12px),repeating-linear-gradient(90deg, hsla(253,0%,98%,0.03) 0px, hsla(253,0%,98%,0.03) 1px,transparent 1px, transparent 12px),repeating-linear-gradient(90deg, hsla(253,0%,98%,0.03) 0px, hsla(253,0%,98%,0.03) 1px,transparent 1px, transparent 12px),repeating-linear-gradient(135deg, hsla(253,0%,98%,0.03) 0px, hsla(253,0%,98%,0.03) 1px,transparent 1px, transparent 12px),repeating-linear-gradient(67.5deg, hsla(253,0%,98%,0.03) 0px, hsla(253,0%,98%,0.03) 1px,transparent 1px, transparent 12px),repeating-linear-gradient(135deg, hsla(253,0%,98%,0.03) 0px, hsla(253,0%,98%,0.03) 1px,transparent 1px, transparent 12px),repeating-linear-gradient(90deg, hsla(253,0%,98%,0.03) 0px, hsla(253,0%,98%,0.03) 1px,transparent 1px, transparent 12px),linear-gradient(90deg, rgb(13, 8, 66),rgb(230, 168, 209));
     box-shadow: $app-box-shadow;
@@ -786,9 +783,7 @@ form .btn{
 
 /* ======== PHONES & SMALL SIZED SCREENS  ======== */
 @media only screen and (max-width: 600px) {
-    #main-nav {
-        .nav-list { display: none; }
-    }
+    #main-nav { .nav-list { display: none; } }
 
     .mobile-unhide { display: flex; }
 
