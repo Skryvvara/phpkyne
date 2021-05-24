@@ -48,7 +48,7 @@
                             </div>
 
                             <div class="form-group">
-                                <input type="submit" value="Send" class="app-button-inverted" tabindex="4"></input>
+                                <input type="submit" value="Send" class="btn btn-inverted" tabindex="4"></input>
                             </div>
                         </form>
                     </div>

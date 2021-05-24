@@ -1,20 +1,34 @@
 require('./../js/bootstrap');
 
 document.addEventListener("DOMContentLoaded", function() {
-    let mobileMenuButton = document.getElementById('mobile-menu-button');
-    if (mobileMenuButton !== null) {
-        mobileMenuButton.addEventListener("click", function() {
-            toggle_mobile_menu();
+    let btnShowMobileMenu = document.getElementById('mobile-menu-show');
+    if (btnShowMobileMenu !== null) {
+        btnShowMobileMenu.addEventListener("click", function() {
+            showMobileMenu();
+        })
+    }
+
+    let btnHideMobileMenu = document.getElementById('mobile-menu-hide');
+    if (btnHideMobileMenu !== null) {
+        btnHideMobileMenu.addEventListener("click", function() {
+            hideMobileMenu();
         })
     }
 })
 
-function toggle_mobile_menu() {
+function hideMobileMenu() {
     let mobileMenu = document.getElementById('mobilenav');
     if (mobileMenu !== null) {
         if (mobileMenu.classList.contains('mobile-show')) {
             mobileMenu.classList.remove('mobile-show');
-        } else {
+        }
+    }
+}
+
+function showMobileMenu() {
+    let mobileMenu = document.getElementById('mobilenav');
+    if (mobileMenu !== null) {
+        if (!mobileMenu.classList.contains('mobile-show')) {
             mobileMenu.classList.add('mobile-show');
         }
     }
