@@ -38,7 +38,6 @@ $gradient-bg-white: linear-gradient(rgb(255, 255, 255), rgb(245, 245, 250));
     -webkit-backface-visibility: hidden;
 
     color: $app-fg-light;
-    fill: $app-fg-light;
 }
 
 @mixin flex-row-center {
@@ -486,6 +485,7 @@ form .btn{
                 align-items: center;
 
                 svg {
+                    fill: $app-fg-light;
                     margin-left: 5px;
                 }
             }
