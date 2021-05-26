@@ -1,35 +1,29 @@
 require('./../js/bootstrap');
 
 document.addEventListener("DOMContentLoaded", function() {
-    let btnShowMobileMenu = document.getElementById('mobile-menu-show');
-    if (btnShowMobileMenu !== null) {
-        btnShowMobileMenu.addEventListener("click", function() {
-            showMobileMenu();
-        })
-    }
+    let mobileMenu = document.getElementById('mobilenav')!
 
-    let btnHideMobileMenu = document.getElementById('mobile-menu-hide');
-    if (btnHideMobileMenu !== null) {
-        btnHideMobileMenu.addEventListener("click", function() {
-            hideMobileMenu();
+    let btnShowMobileMenu = document.getElementById('mobile-menu-show')!
+    btnShowMobileMenu.addEventListener("click", function() {
+        toggleClass(mobileMenu, 'mobile-show')
+    })
+
+    let btnHideMobileMenu = document.getElementById('mobile-menu-hide')!
+    btnHideMobileMenu.addEventListener("click", function() {
+        toggleClass(mobileMenu, 'mobile-show')
+    })
+
+    let userbtn = document.getElementsByName('user-btn')
+    userbtn.forEach(x => {
+        x.addEventListener('click', function() {
+            let parent = x.parentElement!
+            toggleClass(parent, 'show')
         })
-    }
+    })
 })
 
-function hideMobileMenu() {
-    let mobileMenu = document.getElementById('mobilenav');
-    if (mobileMenu !== null) {
-        if (mobileMenu.classList.contains('mobile-show')) {
-            mobileMenu.classList.remove('mobile-show');
-        }
-    }
-}
-
-function showMobileMenu() {
-    let mobileMenu = document.getElementById('mobilenav');
-    if (mobileMenu !== null) {
-        if (!mobileMenu.classList.contains('mobile-show')) {
-            mobileMenu.classList.add('mobile-show');
-        }
+function toggleClass(element: HTMLElement, className: string) {
+    if (null !== element) {
+        element.classList.toggle(className)
     }
 }

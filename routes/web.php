@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 
 use Illuminate\Support\Facades\Mail;
 
+
+Auth::routes(['verify' => true]);
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,20 +19,49 @@ use Illuminate\Support\Facades\Mail;
 |
 */
 
-Route::get('/', [HomeController::class, 'home']);
-Route::get('/work', [HomeController::class, 'work']);
+Route::get('/', [HomeController::class, 'home'])->name('home');
+Route::get('/work', [HomeController::class, 'work'])->name('work');
 
-Route::get('/contact', [ContactController::class, 'contact']);
+Route::get('/contact', [ContactController::class, 'contact'])->name('contact');
 Route::post('/contact', [ContactController::Class, 'contactsubmit'])->name('contact.submit');
 
-Route::get('/game', [HomeController::class, 'game']);
 
-Route::get('/github', static function() {
-   return redirect('https://github.com/xdarkyne');
+/*
+|--------------------------------------------------------------------------
+| Verified Group
+|--------------------------------------------------------------------------
+|
+| Routes that require the user to be logged in and
+| have verified their email address.
+|
+*/
+
+Route::group(['middleware' => 'verified'], function () {
+   Route::get('/game', [HomeController::class, 'game'])->name('game');
 });
-Route::get('/discord', static function() {
-   return redirect('https://discord.gg/2JjnKs5sqP');
+
+/*
+|--------------------------------------------------------------------------
+| Auth Group
+|--------------------------------------------------------------------------
+|
+| Routes that require the user to be logged in.
+|
+*/
+
+Route::group(['middleware' => 'auth'], function() {
+   
 });
-Route::get('/twitter', static function() {
-   return redirect('https://twitter.com/xDarkyne');
-});
+
+/*
+|--------------------------------------------------------------------------
+| External Routes
+|--------------------------------------------------------------------------
+|
+| Here are routes that redirect away from this site.   
+|
+*/
+
+Route::get('/github', static function() { return redirect('https://github.com/xdarkyne'); })->name('ext.github');
+Route::get('/discord', static function() { return redirect('https://discord.gg/2JjnKs5sqP'); })->name('ext.discord');
+Route::get('/twitter', static function() { return redirect('https://twitter.com/xDarkyne'); })->name('ext.twitter');

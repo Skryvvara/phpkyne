@@ -9,11 +9,17 @@ class BaseComposer
 {
     public function compose(View $view): void {
         $nav = [
-            ['home', '/', false],
-            ['work', '/work', false],
-            ['github', '/github', true]
+            ['home', 'home', false],
+            ['work', 'work', false],
+            ['contact', 'contact', false],
+            ['github', 'ext.github', true],
         ];
 
-        $view->with('nav', $nav);
+        $usermenu = [
+            ['game', 'game'],
+        ];
+
+        $view->with('nav', $nav)->with('usermenu', $usermenu);
+        
     }
 }
