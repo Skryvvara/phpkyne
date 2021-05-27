@@ -15,10 +15,10 @@
         @endif
             <div class="half-size-grid">
                 <div class="half-section">
-                    <div class="section">
+                    <div class="flex-section">
                         <h1 class="section-title">Send me a message...</h1>
                         <form action="{{ route('contact.submit') }}" method="POST" class="card card-nohov form-card">
-                        @csrf
+                            @csrf
                             <div class="form-group">
                                 <label for="name">
                                     Name
@@ -55,7 +55,7 @@
                 </div>
 
                 <div class="half-section flex-col">
-                    <section class="section">
+                    <section class="flex-section">
                         <h1 class="section-title">...Or choose another medium!</h1>
                         <ul class="icon-button-list">
                             <li class="card pd-10">
@@ -90,7 +90,7 @@
                         </ul>
                     </section>
 
-                    <section class="section flex-bottom" id="impressum">
+                    <section class="flex-section flex-bottom" id="impressum">
                         <h1 class="section-title">Impressum</h1>
                         <div class="card card-nohov pd-10">
                             <div class="form-group">

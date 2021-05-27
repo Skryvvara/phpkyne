@@ -1,15 +1,18 @@
-/*
-const AllQuestions = GameArray;
-var sessQuestions = [];
+let sessQuestions: Array<string> = []
+let AllQuestions: Array<string> = []
 
 document.addEventListener("DOMContentLoaded", function() {
-    init();
-    let nextbutton = document.getElementById('nextbutton');
-    if (nextbutton != null) {
-        nextbutton.addEventListener("click", function() {
-            init();
+    fetch('/api/game')
+        .then((res: any) => res.json())
+        .then((response: any) => {
+            AllQuestions = response
+            init()
         })
-    }
+
+    let nextButton = document.getElementById('next-button')!;
+    nextButton.addEventListener("click", (event) => {
+        init()
+    })
 })
 
 function init() {
@@ -17,7 +20,7 @@ function init() {
         sessQuestions = AllQuestions.slice();
     }
 
-    let index = getRandomInt(sessQuestions.length);
+    let index: number = getRandomInt(sessQuestions.length);
     setQuestionText(index);
     sessQuestions.splice(index, 1);
 }
@@ -38,4 +41,3 @@ function setQuestionText(index: number) {
 function getRandomInt(max: number) {
     return Math.floor(Math.random() * max);
 }
-*/

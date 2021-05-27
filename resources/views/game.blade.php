@@ -14,7 +14,7 @@
             </div>
 
             <div class="game-button">
-                <button id="nextbutton" class="app-button-inverted" >NEXT QUESTION</button>
+                <button id="next-button" class="app-button-inverted" >NEXT QUESTION</button>
             </div>
         </div>
     </div>
@@ -22,8 +22,5 @@
 @endsection
 
 @section('scripts')
-<script>
-    var GameArray = @json($questions)
-</script>
 <script src="{{ mix('js/game.js') }}"></script>
 @endsection

@@ -34,7 +34,12 @@ class HomeController extends Controller
     }
 
     public function game() {
+        return view('game');
+    }
+
+    public function getQuestions() {
         $questions = ["Question 1", "Question 2", "Question 3", "Question 4", "Question 5"];
-        return view('game')->with('questions', $questions);
+
+        return json_encode($questions);
     }
 }

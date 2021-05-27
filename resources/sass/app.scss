@@ -6,7 +6,7 @@ $half-header-height: 40px;
 $header-safe-height: 120px;
 $max-body-width: 1250px;
 $app-box-shadow: 0 5px 15px 0 rgba(50, 50, 50, 0.15),0 2px 4px 0 rgba(50, 50, 50, 0.2);
-$app-border-radius: 8px;
+$app-border-radius: 0px;
 /* ======== COLORS ======== */
 $app-primary-color: #191919;
 $app-secondary-color: #202020;
@@ -205,8 +205,8 @@ body { background-image: radial-gradient(circle at center center, rgba(33,33,33,
     display: grid;
     grid-template-columns: 1fr 1fr;
     -ms-grid-columns: 1fr 1fr;
-    grid-gap: 10px;
-    gap: 10px;
+    grid-gap: 15px;
+    gap: 15px;
 }
 .grid-4 {
     display: grid;
@@ -234,7 +234,7 @@ body { background-image: radial-gradient(circle at center center, rgba(33,33,33,
 
 .main-section {
     padding-top: calc(#{$header-height} + 20px);
-    padding-bottom: $half-header-height;
+    padding-bottom: 20px;
 
     &:not(:last-child) {
         margin-bottom: 10px;
@@ -242,6 +242,16 @@ body { background-image: radial-gradient(circle at center center, rgba(33,33,33,
     &:last-child {
         min-height: calc(100vh - #{$header-height});
     }
+}
+
+.flex-section {
+    height: 100%;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.flex-section:not(:last-child) {
+    margin-bottom: 20px;
 }
 
 .section-inner {
@@ -360,7 +370,7 @@ form .btn{
 
     transition: all 300ms;
 
-    border: 1px solid gray;
+    border: 1px solid dimgray;
     border-radius: $app-border-radius;
 
     &:hover {
@@ -376,8 +386,9 @@ form .btn{
     height: fit-content;
     width: fit-content;
     padding: 5px;
-    border-radius: $app-border-radius;
+    border-radius: 50px;
     box-shadow: $app-box-shadow;
+    transition: all 300ms; 
 
     svg {
         height: 48px;
@@ -388,10 +399,10 @@ form .btn{
         filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .5));
     }
 }
-.icon-button:focus { outline: none; }
-.icon-button-discord { background: #7289DA; }
-.icon-button-mail { background: #99AAB5; }
-.icon-button-twitter { background: #1DA1F2; }
+.icon-button:focus { outline: none}
+.icon-button-discord { background: #5865F2; &:hover { background: darken(#5865F2, 5%); } }
+.icon-button-mail { background: #99AAB5; &:hover { background: darken(#99AAB5, 5%); } }
+.icon-button-twitter { background: #1DA1F2; &:hover { background: darken(#1DA1F2, 5%); } }
 
 .event-banner {
     padding: 10px 10px;
@@ -691,38 +702,65 @@ form .btn{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     -ms-grid-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 15px 10px;
-    gap: 15px 10px;
+    grid-gap: 15px;
+    gap: 15px;
 
     .project-card {
         display: flex;
         flex-direction: column;
+        border-radius: 0;
 
         .project-header {
             padding: 10px 10px;
             font-size: 1.1em;
             display: flex;
-            align-items: center;
-            border-bottom: 1px solid gray;
+            flex-direction: column;
+            align-items: flex-start;
+            border-bottom: 1px solid dimgray;
             
-            h1 { color: $app-fg-darker; }
+            h1 { 
+                color: $app-fg-darker;
+                border-bottom: 1px solid dimgray;
+                margin-bottom: 5px;
+            }
 
             .tag {
                 background: $app-tertiary-color;
                 color: darken($app-fg-darker, 10%);
-                margin-left: auto;
                 font-size: 0.8em;
-                padding: 5px;
-                border: 1px solid gray;
-                border-radius: $app-border-radius;
+                padding: 0 5px;
+                border: 1px solid dimgray;
             }
         }
         .project-body { padding: 15px 10px; }
 
         .project-footer {
-            border-top: 1px solid gray;
+            border-top: 1px solid dimgray;
             margin-top: auto;
-            padding: 10px 10px;
+            
+            .proj-btn {
+                height: 100%;
+                width: 100%;
+
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+
+                padding: 10px 0;
+                border: 1px solid $color-brand-default;
+
+                background: $color-brand-default;
+                color: $app-fg-light;
+                fill: $app-fg-light;
+                font-weight: bold;
+
+                transition: all 300ms;
+
+                &:hover {
+                    background: $color-brand-darker;
+                }
+            }
         }
     }
 }
@@ -735,13 +773,17 @@ form .btn{
     display: grid;
     grid-template-columns: 1fr 1fr;
     -ms-grid-columns: 1fr 1fr;
-    grid-gap: 10px 20px;
-    gap: 10px 20px;
+    grid-gap: 20px 20px;
+    gap: 20px 20px;
 }
 
 .form-card {
+    height: 100%;
+    max-height: 100%;
     padding: 15px 10px;
-
+    display: flex;
+    flex-direction: column;
+    
     .form-group {
         display: flex;
         flex-direction: column;
@@ -773,6 +815,14 @@ form .btn{
             max-height: 500px;
         }
     }
+    .form-group:last-child {
+        height: 100%;
+        margin-bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 .icon-button-list {
@@ -781,8 +831,8 @@ form .btn{
     -ms-grid-columns: 1fr;
     grid-template-rows: auto;
     -ms-grid-rows: auto;
-    grid-gap: 10px 0;
-    gap: 10px 0;
+    grid-gap: 15px;
+    gap: 15px;
 
     li {
         display: flex;
@@ -825,8 +875,8 @@ form .btn{
         display: grid;
         grid-template-columns: 1fr 1fr;
         -ms-grid-columns: 1fr 1fr;
-        grid-gap: 25px;
-        gap: 25px;
+        grid-gap: 15px;
+        gap: 15px;
     }
 
     .screen {
@@ -838,10 +888,15 @@ form .btn{
 
 
 /* ======== EVERYTHING THAT'S NOT A PHONE ======== */
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 801px) {
     .mobile-unhide { display: none; }
 
     .mobile-show { height: 0!important; overflow: hidden!important;}
+}
+@media only screen and (max-width: 800px) {
+    #main-nav { .nav-list { display: none; } }
+
+    .mobile-unhide { display: flex; }
 }
 /* ======== EVERYTHING THAT'S NOT A PHONE ======== */
 
@@ -849,10 +904,6 @@ form .btn{
 
 /* ======== PHONES & SMALL SIZED SCREENS  ======== */
 @media only screen and (max-width: 600px) {
-    #main-nav { .nav-list { display: none; } }
-
-    .mobile-unhide { display: flex; }
-
     .primary-hero {
         height: calc(100vh - #{$header-height} - 20px);
 
@@ -863,8 +914,8 @@ form .btn{
         display: grid;
         grid-template-columns: 1fr;
         -ms-grid-columns: 1fr;
-        grid-gap: 10px;
-        gap: 10px;
+        grid-gap: 15px;
+        gap: 15px;
     }
 
     .half-size-grid {

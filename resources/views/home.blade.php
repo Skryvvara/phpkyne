@@ -18,7 +18,7 @@
     <section class="main-section" id="skills">
         <div class="container">
             <h1 class="section-title">Skills</h1>
-            <div class="grid-2 gp-25">
+            <div class="grid-2">
                 <div class="skill-card skill-web">
                     <h1><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20,3H4C2.897,3,2,3.897,2,5v1v3v10c0,1.103,0.897,2,2,2h16c1.103,0,2-0.897,2-2V9V6V5C22,3.897,21.103,3,20,3z M17,6h2v2 h-2V6z M14,6h2v2h-2V6z M4,19v-9h16.001l0.001,9H4z"></path></svg>Web development</h1>
                     <p>Using <a class="app-link" href="https://laravel.com/">Laravel</a>, mySQL, HTML (Blade), SCSS and TypeScript I taught myself how to create functional and good-looking web experiences.</p>
