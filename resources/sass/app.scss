@@ -16,8 +16,8 @@ $color-brand-darker: darken($color-brand-default, 15%);
 $app-fg-light: #fcfcfc;
 $app-fg-darker: darken($app-fg-light, 10%);
 
-@import "helper/reset.scss";
-@import "helper/flex.scss";
+@import 'helper/reset.scss';
+@import 'helper/flex.scss';
 
 html { scroll-behavior: smooth; }
 
@@ -95,28 +95,28 @@ html { scroll-behavior: smooth; }
     }
 }
 
-input:not(input[type="submit"]) {
+input:not(input[type='submit']) {
     padding: 5px;
     background: #333;
     outline: 1px solid dimgray;
     border: none;
 }
-input:not(input[type="submit"]):focus {
+input:not(input[type='submit']):focus {
     outline-color: $color-brand-default;
 }
-input:not(input[type="submit"]):-webkit-autofill {
+input:not(input[type='submit']):-webkit-autofill {
     background: #444444;
 }
-input[type="checkbox"] {
+input[type='checkbox'] {
     height: 16px;
     width: 16px;
     appearance: none;
     position: relative;
     margin-right: 5px;
 }
-input[type="checkbox"]:checked::after {
+input[type='checkbox']:checked::after {
     height: 100%;
-    content: "\2713";
+    content: '\2713';
     background: $color-brand-default;
     position: absolute;
     top: 0;
@@ -317,7 +317,7 @@ body { background-image: radial-gradient(circle at center center, rgba(33,33,33,
 
     padding: 7px 30px;
 
-    border-radius: 8px 0 8px 0; 
+    border-radius: 8px 0 8px 0;
     box-shadow: $app-box-shadow;
     transition: all 300ms;
 
@@ -388,7 +388,7 @@ form .btn{
     padding: 5px;
     border-radius: 50px;
     box-shadow: $app-box-shadow;
-    transition: all 300ms; 
+    transition: all 300ms;
 
     svg {
         height: 48px;
@@ -564,7 +564,7 @@ form .btn{
             justify-content: center;
             align-items: center;
         }
-    } 
+    }
 }
 
 .mobile-show {
@@ -573,7 +573,7 @@ form .btn{
 }
 
 .mobile-button-div {
-    align-items: center; 
+    align-items: center;
 }
 .mobile-menu-button {
     background: inherit;
@@ -604,7 +604,7 @@ form .btn{
 
     position: relative;
     bottom: 0;
-    
+
     .footer-list {
         width: 100%;
 
@@ -614,7 +614,7 @@ form .btn{
         align-items: center;
 
         li { color: $app-fg-light; }
-        
+
         li:not(:last-child)::after {
             content: '/';
             color: $app-fg-light;
@@ -636,7 +636,7 @@ form .btn{
 
     .primary-hero-content {
         width: 50%;
-        
+
         h1 {
             font-size: 2.25em;
             line-height: 1.15em;
@@ -717,8 +717,8 @@ form .btn{
             flex-direction: column;
             align-items: flex-start;
             border-bottom: 1px solid dimgray;
-            
-            h1 { 
+
+            h1 {
                 color: $app-fg-darker;
                 border-bottom: 1px solid dimgray;
                 margin-bottom: 5px;
@@ -737,7 +737,7 @@ form .btn{
         .project-footer {
             border-top: 1px solid dimgray;
             margin-top: auto;
-            
+
             .proj-btn {
                 height: 100%;
                 width: 100%;
@@ -783,7 +783,7 @@ form .btn{
     padding: 15px 10px;
     display: flex;
     flex-direction: column;
-    
+
     .form-group {
         display: flex;
         flex-direction: column;
@@ -794,7 +794,7 @@ form .btn{
         input, textarea {
             appearance: none;
 
-            &:not(input[type="submit"]) {
+            &:not(input[type='submit']) {
                 padding: 7px 5px 5px 5px;
                 background: $app-tertiary-color;
                 border: 1px solid rgba(100, 100, 100, 0.35);
@@ -804,7 +804,7 @@ form .btn{
 
                 &:focus {
                     border: 1px solid $color-brand-default;
-                    border-radius: 0;                 
+                    border-radius: 0;
                 }
             }
         }

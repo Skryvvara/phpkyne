@@ -20,7 +20,5 @@
         "ts-loader": "^8.1.0",
         "typescript": "^4.2.4"
     },
-    "dependencies": {
-        "is-svg": "^3.0.0"
-    }
+    "dependencies": {}
 }
