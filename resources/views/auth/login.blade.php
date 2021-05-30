@@ -13,7 +13,7 @@
         <div class="form-group fl fl-col">
             <label for="username">{{ __('Name') }}</label>
 
-            <input id="username" type="username" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
+            <input id="username" type="text" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
             @error('username')
                 <span class="invalid-feedback" role="alert"><b>{{ $message }}</b></span>
             @enderror
