@@ -11,10 +11,10 @@
         @csrf
 
         <div class="form-group fl fl-col">
-            <label for="name">{{ __('Name') }}</label>
+            <label for="username">{{ __('Name') }}</label>
 
-            <input id="name" type="text" name="name" value="{{ old('name') }}" placeholder="Username" required autocomplete="name"  autofocus>
-            @error('name')
+            <input id="username" type="text" name="username" value="{{ old('username') }}" placeholder="Username" required autocomplete="username"  autofocus>
+            @error('username')
                 <span class="invalid-feedback" role="alert"><b>{{ $message }}</b></span>
             @enderror
         </div>
