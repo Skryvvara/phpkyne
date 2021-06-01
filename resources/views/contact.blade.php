@@ -5,18 +5,18 @@
 @section('content')
     <section class="main-section">
         <div class="container">
-        @if(session()->has('message'))
-            @if(session()->get('success') === false)
-                @include('components/warning-banner', ['title' => 'Warning!', 'message' => session()->get('message')])
-            @endif
-            @if(session()->get('success') === true)
-                @include('components/success-banner', ['title' => 'Success!', 'message' => session()->get('message')])
-            @endif
-        @endif
             <div class="half-size-grid">
                 <div class="half-section">
                     <div class="flex-section">
                         <h1 class="section-title">Send me a message...</h1>
+                        @if(session()->has('message'))
+                            @if(session()->get('success') === false)
+                                @include('components/warning-banner', ['title' => 'Warning!', 'message' => session()->get('message')])
+                            @endif
+                            @if(session()->get('success') === true)
+                                @include('components/success-banner', ['title' => 'Success!', 'message' => session()->get('message')])
+                            @endif
+                        @endif
                         <form action="{{ route('contact.submit') }}" method="POST" class="card card-no-hover form-card">
                             @csrf
                             <div class="form-group">

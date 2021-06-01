@@ -7,9 +7,9 @@
         <div class="container">
             <div class="v-center">
                 <div class="primary-hero-content">
-                    <h1>Hi! I'm Dimitri aka Darkyne</h1>
-                    <p>I'm a system integrator at Procter & Gamble, hobby developer and gamer.</p>
-                    <a href="#skills" class="btn">LEARN MORE</a>
+                    <h1>{{__('home.intro_title')}}</h1>
+                    <p>{{__('home.intro_sub')}}</p>
+                    <a href="#skills" class="btn">{{__('home.learn_more')}}</a>
                 </div>
             </div>
         </div>
