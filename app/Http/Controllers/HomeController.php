@@ -1,12 +1,30 @@
 <?php
 
-
 namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
-    public function home() {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        //$this->middleware('auth');
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function home()
+    {
         return view('home');
     }
 
@@ -16,12 +34,13 @@ class HomeController extends Controller
         return view('work')->with('projects', $projects);
     }
 
-    public function contact() {
-        return view('contact');
+    public function game() {
+        return view('game');
     }
 
-    public function game() {
+    public function getQuestions() {
         $questions = ["Question 1", "Question 2", "Question 3", "Question 4", "Question 5"];
-        return view('game')->with('questions', $questions);
+
+        return json_encode($questions);
     }
 }

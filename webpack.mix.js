@@ -11,7 +11,7 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/game.js', 'public/js')
+mix.ts('resources/ts/game.ts', 'public/js')
     .ts('resources/ts/app.ts', 'public/js')
     .sass('resources/sass/app.scss', 'public/css').version()
     .sass('resources/sass/game.scss', 'public/css').version();

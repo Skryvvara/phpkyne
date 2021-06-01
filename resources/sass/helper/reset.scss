@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+
+    font-size: 1em;
+    font-family: Raleway,arial,sans-serif;
+
+    color: $app-fg-light;
+    box-sizing: border-box;
+}
+
+a { text-decoration: none; }
+
+body { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+
+button { cursor: pointer; }
+
+ul, ol { list-style: none; }
+
+.fh { height: 100%; }
+.fw { width: 100%; }
+
+.rel-fill {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+}

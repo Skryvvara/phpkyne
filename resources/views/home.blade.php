@@ -7,9 +7,9 @@
         <div class="container">
             <div class="v-center">
                 <div class="primary-hero-content">
-                    <h1>Hi! I'm Dimitri aka Darkyne</h1>
-                    <p>I'm a system integrator at Procter & Gamble, hobby developer and gamer.</p>
-                    <a href="#skills" class="btn">LEARN MORE</a>
+                    <h1>{{__('home.intro_title')}}</h1>
+                    <p>{{__('home.intro_sub')}}</p>
+                    <a href="#skills" class="btn">{{__('home.learn_more')}}</a>
                 </div>
             </div>
         </div>
@@ -18,7 +18,7 @@
     <section class="main-section" id="skills">
         <div class="container">
             <h1 class="section-title">Skills</h1>
-            <div class="grid-2 gp-25">
+            <div class="grid-2">
                 <div class="skill-card skill-web">
                     <h1><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20,3H4C2.897,3,2,3.897,2,5v1v3v10c0,1.103,0.897,2,2,2h16c1.103,0,2-0.897,2-2V9V6V5C22,3.897,21.103,3,20,3z M17,6h2v2 h-2V6z M14,6h2v2h-2V6z M4,19v-9h16.001l0.001,9H4z"></path></svg>Web development</h1>
                     <p>Using <a class="app-link" href="https://laravel.com/">Laravel</a>, mySQL, HTML (Blade), SCSS and TypeScript I taught myself how to create functional and good-looking web experiences.</p>
@@ -26,7 +26,7 @@
 
                 <div class="skill-card skill-hardware">
                     <h1><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M7.999 22h8c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2h-8c-1.103 0-2 .897-2 2v16C5.999 21.103 6.896 22 7.999 22zM2.999 7L4.999 7 4.999 5 2.999 5 2.999 5.5 1.999 5.5 1.999 6.5 2.999 6.5zM20.999 5L18.999 5 18.999 7 20.999 7 20.999 6.5 21.999 6.5 21.999 5.5 20.999 5.5zM2.999 11L4.999 11 4.999 9 2.999 9 2.999 9.5 1.999 9.5 1.999 10.5 2.999 10.5zM20.999 9L18.999 9 18.999 11 20.999 11 20.999 10.5 21.999 10.5 21.999 9.5 20.999 9.5zM2.999 15L4.999 15 4.999 13 2.999 13 2.999 13.5 1.999 13.5 1.999 14.5 2.999 14.5zM20.999 13L18.999 13 18.999 15 20.999 15 20.999 14.5 21.999 14.5 21.999 13.5 20.999 13.5zM2.999 19L4.999 19 4.999 17 2.999 17 2.999 17.5 1.999 17.5 1.999 18.5 2.999 18.5zM20.999 17L18.999 17 18.999 19 20.999 19 20.999 18.5 21.999 18.5 21.999 17.5 20.999 17.5z"></path></svg>Hardware</h1>
-                    <p>As a trainee Procter & Gamble I have learned a lot about Computers and how they work, Servers, Networking and more. In my spare time I tinker with PCs, Raspberries and Windows Servers.</p>
+                    <p>As a trainee at Procter & Gamble I have learned a lot about Computers and how they work, Servers, Networking and more. In my spare time I tinker with PCs, Raspberries and Windows Servers.</p>
                 </div>
 
                 <div class="skill-card skill-programming">
