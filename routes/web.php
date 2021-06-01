@@ -2,10 +2,8 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactController;
-use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
-use Illuminate\Support\Facades\Mail;
 
 
 Auth::routes(['verify' => true]);
@@ -29,7 +27,7 @@ Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/work', [HomeController::class, 'work'])->name('work');
 
 Route::get('/contact', [ContactController::class, 'contact'])->name('contact');
-Route::post('/contact', [ContactController::Class, 'contactsubmit'])->name('contact.submit');
+Route::post('/contact', [ContactController::Class, 'contactSubmit'])->name('contact.submit');
 
 
 /*

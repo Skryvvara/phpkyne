@@ -60,5 +60,5 @@ jobs:
             rm -rf storage/framework/cache
             php8.0 artisan storage:link
             php8.0 artisan cache:clear
-            php8.0 artisan migrate
+            php8.0 yes | artisan migrate
             rm dist.tar.gz

@@ -2,11 +2,9 @@
 
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use App\Mail\ContactMail;
-use Config;
 
 
 class ContactController extends Controller
@@ -15,7 +13,7 @@ class ContactController extends Controller
         return view('contact');
     }
 
-    public function contactsubmit(Request $request) {
+    public function contactSubmit(Request $request) {
         $data = [
             'name' => $request->name,
             'email' => $request->email,
