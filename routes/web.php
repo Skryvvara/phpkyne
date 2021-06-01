@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactController;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
 use Illuminate\Support\Facades\Mail;
@@ -19,7 +20,12 @@ Auth::routes(['verify' => true]);
 |
 */
 
+Route::get('/', function () {
+    return redirect(app()->getLocale());
+});
+
 Route::get('/', [HomeController::class, 'home'])->name('home');
+
 Route::get('/work', [HomeController::class, 'work'])->name('work');
 
 Route::get('/contact', [ContactController::class, 'contact'])->name('contact');
@@ -50,7 +56,7 @@ Route::group(['middleware' => 'verified'], function () {
 */
 
 Route::group(['middleware' => 'auth'], function() {
-   
+
 });
 
 /*
@@ -58,7 +64,7 @@ Route::group(['middleware' => 'auth'], function() {
 | External Routes
 |--------------------------------------------------------------------------
 |
-| Here are routes that redirect away from this site.   
+| Here are routes that redirect away from this site.
 |
 */
 
