@@ -95,6 +95,17 @@ return [
 
     'fallback_locale' => 'en',
 
+    /*
+    |--------------------------------------------------------------------------
+    | Supported App Locales
+    |--------------------------------------------------------------------------
+    |
+    | A list of locales supported by this app. When requesting this website
+    | a middleware checks if the users preferred locale is amongst this list
+    | in case it is not the fallback locale is used.
+    |
+    */
+
     'supported_locales' => [
         'en' => 'English',
         'de' => 'Deutsch',
