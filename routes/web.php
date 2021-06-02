@@ -41,7 +41,11 @@ Route::post('/contact', [ContactController::Class, 'contactSubmit'])->name('cont
 */
 
 Route::group(['middleware' => 'verified'], function () {
-   Route::get('/game', [HomeController::class, 'game'])->name('game');
+
+    Route::group(['middleware' => 'permission:view_game'], function() {
+        Route::get('/game', [HomeController::class, 'game'])->name('game');
+    });
+
 });
 
 /*
