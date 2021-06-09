@@ -53,6 +53,11 @@
                                         <a href="{{ route($item[1]) }}">{{ $item[0] }}</a>
                                     </li>
                                     @endforeach
+                                    @if (Auth::user()->can('play-game'))
+                                        <li class="dropdown-item">
+                                            <a href="#">Home</a>
+                                        </li>
+                                    @endif
                                     <li class="dropdown-item" >
                                         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                                     </li>
