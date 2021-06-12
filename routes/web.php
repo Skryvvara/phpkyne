@@ -41,7 +41,17 @@ Route::post('/contact', [ContactController::Class, 'contactSubmit'])->name('cont
 */
 
 Route::group(['middleware' => 'verified'], function () {
-   Route::get('/game', [HomeController::class, 'game'])->name('game');
+
+    Route::group(['middleware' => 'permission:view_game'], function() {
+        Route::get('/game', [HomeController::class, 'game'])->name('game');
+    });
+
+    Route::group(['middleware' => 'role:Admin'], function() {
+       Route::get('/control', [HomeController::class, 'control'])->name('admin.control');
+
+       Route::post('/admin/create-role', [HomeController::class, 'create_role'])->name('role.create');
+    });
+
 });
 
 /*
