@@ -19,28 +19,28 @@
                         @endif
                         <form action="{{ route('contact.submit') }}" method="POST" class="card card-no-hover form-card">
                             @csrf
-                            <div class="form-group">
+                            <div class="form-group fl-col">
                                 <label for="name">
                                     Name
                                 </label>
                                 <input id="name" name="name" type="text" placeholder="John Smith" tabindex="1" maxlength="25" required @guest @else value="{{ Auth::user()->name }}" @endguest></input>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group fl-col">
                                 <label for="email">
                                     Email
                                 </label>
                                 <input id="email" name="email" type="email" placeholder="john.smith@example.com" tabindex="2" maxlength="40" required @guest @else value="{{ Auth::user()->email }}" @endguest></input>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group fl-col">
                                 <label for="subject">
                                     Subject
                                 </label>
                                 <input id="subject" name="subject" type="text" placeholder="Subject" tabindex="3" maxlength="50" required></input>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group fl-col">
                                 <label for="message">
                                     Message
                                 </label>
@@ -93,17 +93,17 @@
                     <section class="flex-section flex-bottom" id="impressum">
                         <h1 class="section-title">Impressum</h1>
                         <div class="card card-no-hover pd-10">
-                            <div class="form-group">
+                            <div class="fl fl-col">
                                 <h2>Name</h2>
                                 <p>Dimitri Kaiser</p>
                             </div>
-                            <div class="form-group">
+                            <div class="fl fl-col">
                                 <h2>Address</h2>
                                 <p>Schlesienstr. 11</p>
                                 <p>97828 Marktheidenfeld</p>
                                 <p>Germany</p>
                             </div>
-                            <div class="form-group">
+                            <div class="fl fl-col">
                                 <h2>Email</h2>
                                 <p>dev@darkyne.com</p>
                             </div>

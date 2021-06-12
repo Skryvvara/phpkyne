@@ -9,12 +9,10 @@
         </div>
 
         <div class="flex-row-right mobile-button-div mobile-unhide">
-            <button class="mobile-menu-button" id="mobile-menu-show">
-                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="4" y="11" width="16" height="2" rx="1"/>
-                    <rect x="4" y="6" width="16" height="2" rx="1"/>
-                    <rect x="4" y="16" width="16" height="2" rx="1"/>
-                </svg>
+            <button class="hamburger hamburger--squeeze" type="button" id="mobile-menu-toggle">
+              <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+              </span>
             </button>
         </div>
 
@@ -76,26 +74,6 @@
 
     <!-- MOBILE HEADER -->
     <div class="mobile-nav-menu" id="mobilenav">
-        <div class="mobile-nav-header">
-            <div class="container flex-row">
-                <div class="flex-row-left">
-                    <div class="logo-box">
-                        <a href="https://darkyne.com">
-
-                        </a>
-                    </div>
-                </div>
-
-                <div class="flex-row-right">
-                    <button class="mobile-menu-button" id="mobile-menu-hide">
-                        <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="6.41421" y="5" width="18" height="2" rx="1" transform="rotate(45 6.41421 5)"/>
-                            <rect x="5" y="17.7279" width="18" height="2" rx="1" transform="rotate(-45 5 17.7279)"/>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
         <div class="container">
             <ul class="mobile-nav-list">
                 @foreach($nav as $item)

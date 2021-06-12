@@ -1,32 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 /* ======== VARIABLES ======== */
-$header-height: 80px;
+$header-height: 60px;
 $half-header-height: 40px;
 $header-safe-height: 120px;
 $max-body-width: 1250px;
 $app-box-shadow: 0 5px 15px 0 rgba(50, 50, 50, 0.15),0 2px 4px 0 rgba(50, 50, 50, 0.2);
-$app-border-radius: 0px;
+$app-border-radius: 4px;
 /* ======== COLORS ======== */
 $app-primary-color: #121212;
 $app-secondary-color: #212121;
 $app-tertiary-color: #333333;
-// $color-brand-default: #735a87;
-$color-brand-default: #b7a897;
+$color-brand-default: #3b66db;
 $color-brand-darker: darken($color-brand-default, 15%);
 $app-fg-light: #fcfcfc;
 $app-fg-darker: darken($app-fg-light, 10%);
+$color-red-warn: #ed4245;
+$color-green-success: #12805c;
 
 @import 'helper/reset.scss';
 @import 'helper/flex.scss';
 
 html { scroll-behavior: smooth; }
 
-//body { background-image: radial-gradient(circle at center center, rgba(33,33,33,0),rgb(33,33,33)),repeating-linear-gradient(135deg, rgb(33,33,33) 0px, rgb(33,33,33) 1px,transparent 1px, transparent 4px),repeating-linear-gradient(45deg, rgb(56,56,56) 0px, rgb(56,56,56) 5px,transparent 5px, transparent 6px),linear-gradient(90deg, rgb(33,33,33),rgb(33,33,33));}
-body { background: $app-secondary-color; }
+body { background: #191919; }
 
 .screen {
-    height: calc(100vh - 80px);
+    height: calc(100vh - 60px);
     width: 100%;
     position: relative;
     display: flex;
@@ -60,7 +60,68 @@ body { background: $app-secondary-color; }
 }
 
 .form-group {
+    display: flex;
     margin-bottom: 10px;
+
+    label { width: fit-content; font-weight: bold; cursor: pointer; }
+
+    input, textarea {
+        appearance: none;
+
+        &:not(input[type='submit'], input[type='checkbox']) {
+            padding: 7px 5px 5px 5px;
+            background: $app-tertiary-color;
+            border: 0.15rem solid $app-tertiary-color;
+            border-radius: $app-border-radius;
+            outline: none;
+            transition: all 300ms;
+
+            &:focus {
+                border-bottom: 0.15rem solid $color-brand-default;
+                border-radius: 0;
+            }
+        }
+    }
+
+    input[type='checkbox'] {
+        height: 16px;
+        width: 16px;
+        appearance: none;
+        border: 0.15rem solid $app-tertiary-color;
+        border-radius: $app-border-radius;
+        position: relative;
+        margin-right: 5px;
+    }
+    input[type='checkbox']:checked {
+        background: $color-brand-default;
+        border: 0.15rem solid $color-brand-darker;
+    }
+    input[type='checkbox']:checked::after {
+        height: 100%;
+        content: '\2713';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    textarea {
+        resize: none;
+        height: 250px;
+        max-height: 500px;
+    }
+}
+.form-group:last-child {
+    height: 100%;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .dropdown {
@@ -98,39 +159,6 @@ body { background: $app-secondary-color; }
         .dropdown-content { display: block; }
     }
 }
-
-input:not(input[type='submit']) {
-    padding: 5px;
-    background: #333;
-    outline: 1px solid dimgray;
-    border: none;
-}
-input:not(input[type='submit']):focus {
-    outline-color: $color-brand-default;
-}
-input:not(input[type='submit']):-webkit-autofill {
-    background: #444444;
-}
-input[type='checkbox'] {
-    height: 16px;
-    width: 16px;
-    appearance: none;
-    position: relative;
-    margin-right: 5px;
-}
-input[type='checkbox']:checked::after {
-    height: 100%;
-    content: '\2713';
-    background: $color-brand-default;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
 /* ======== CSS RESET & GENERAL STYLE ======== */
 
 @mixin flex-row-center {
@@ -142,7 +170,6 @@ input[type='checkbox']:checked::after {
 @mixin card {
     transform: inherit;
     box-shadow: $app-box-shadow;
-    border: 1px solid lightgray;
     border-radius: $app-border-radius;
     transition: all 300ms;
 }
@@ -247,7 +274,6 @@ input[type='checkbox']:checked::after {
 }
 
 .flex-section {
-    height: 100%;
     max-height: 100%;
     display: flex;
     flex-direction: column;
@@ -308,26 +334,24 @@ input[type='checkbox']:checked::after {
     width: fit-content;
 
     background: $app-fg-light;
-    color: $app-tertiary-color;
+    color: $app-secondary-color;
     fill: $app-tertiary-color;
     font-weight: 800;
 
     display: flex;
     align-items: center;
 
-    padding: 7px 30px;
+    padding: 0.5rem 2rem;
 
-    border-radius: 8px 0 8px 0;
-    box-shadow: $app-box-shadow;
+    border-radius: $app-border-radius;
     transition: all 300ms;
 
-    &:hover { background: darken($app-fg-light, 25%); }
+    &:hover { background: darken($app-fg-light, 20%); }
 
     &.btn-inverted {
         background: $color-brand-default;
-        color: $app-tertiary-color;
+        color: $app-fg-light;
         fill: $app-tertiary-color;
-
         &:hover { background: darken($color-brand-default, 10%); }
     }
 
@@ -366,39 +390,40 @@ form .btn{
 
 .card {
     background: $app-secondary-color;
-    box-shadow: $app-box-shadow;
+    box-shadow: 4px 4px 10px 0 hsla(0%, 0%, 0%, 0.4);
 
     transition: all 300ms;
 
-    border: 1px solid dimgray;
     border-radius: $app-border-radius;
 
     &:hover {
-        box-shadow: rgba(37, 44, 97, 0.15) 0 10px 30px 0, rgba(93, 100, 148, 0.2) 0 4px 18px 0;
-    }
-    &.card-no-hover:hover {
-        transform: inherit;
-        box-shadow: $app-box-shadow;
+
     }
 }
 
 .icon-button {
-    height: fit-content;
-    width: fit-content;
-    display: block;
+    height: 3.5rem;
+    width: 3.5rem;
     padding: 5px;
     border-radius: 50px;
-    box-shadow: $app-box-shadow;
     transition: all 300ms;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 10px 0 hsla(0, 0, 0%, 0.4);
 
     svg {
-        height: 48px;
-        width: 48px;
+        height: 90%;
+        width: 90%;
         color: $app-fg-light;
         fill: $app-fg-light;
         -webkit-filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .5));
         filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .5));
     }
+
+    &:hover, &:active { box-shadow: inset 0 0 10px 0 hsla(0, 0, 0%, 0.7); }
 }
 .icon-button:focus { outline: none}
 .icon-button-discord { background: #5865F2; &:hover { background: darken(#5865F2, 5%); } }
@@ -419,10 +444,10 @@ form .btn{
     h1, p { color: $app-fg-light; }
 }
 .warning-banner {
-    border-left: 0.5rem solid #fc6551;
+    border-left: 0.5rem solid $color-red-warn;
 }
 .success-banner {
-    border-left: 0.5rem solid #9BD1A7;
+    border-left: 0.5rem solid $color-green-success;
 }
 /* ======== CSS RESET & GENERAL STYLE ======== */
 
@@ -433,22 +458,23 @@ form .btn{
     height: $header-height;
     width: 100%;
     background: $app-primary-color;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
 
     position: fixed;
     top: 0;
     z-index: 999;
 
-    margin-bottom: env(--safe-area-inset-top);
     box-shadow: $app-box-shadow;
     transition: all 250ms;
 }
 
 .logo-box {
-    height: 64px;
-    width: 64px;
+    height: 48px;
+    width: 48px;
 
-    padding: 4px;
-    background: $color-brand-default;
+    padding: 1px;
+    background: $app-primary-color;
     border-radius: 4px;
     border: 1px solid #fafbfc;
 
@@ -515,29 +541,34 @@ form .btn{
     margin-right: 10px;
 }
 
+@keyframes slide-in {
+    0% {
+        overflow: hidden;
+    }
+    100% {
+        overflow: visible;
+    }
+}
+
 .mobile-nav-menu {
-    height: 0;
-    background: $app-tertiary-color;
+    height: auto;
+    width: 0;
+    background: $app-secondary-color;
     box-shadow: $app-box-shadow;
     overflow: hidden;
 
     position: fixed;
-    top: 0;
+    top: $header-height;
     left: 0;
     right: 0;
     z-index: 9999;
 
-    transition: all 500ms ease-in-out;
-
-    .mobile-nav-header {
-        background: $app-secondary-color;
-        height: $header-height;
-        border-bottom: 1px solid gray;
+    &.mobile-show {
+        border-bottom: 2px solid dimgray;
     }
 
     .mobile-nav-list {
         padding: 10px 0 25px 0;
-        border-bottom: 2px solid gray;
 
         .mobile-nav-item {
             padding: 15px 0;
@@ -568,28 +599,83 @@ form .btn{
 }
 
 .mobile-show {
-    height: auto!important;
+    width: 100%!important;
     overflow: visible!important;
 }
 
 .mobile-button-div {
     align-items: center;
 }
-.mobile-menu-button {
-    background: inherit;
 
-    svg {
-        background: none;
-        width: 48px;
-        height: 48px;
-        color: $app-fg-light;
-        fill: $app-fg-darker;
-    }
-
-    &:focus {
-        outline: none;
-    }
+.hamburger {
+    padding: 15px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition-property: opacity, filter;
+    transition-duration: 0.15s;
+    transition-timing-function: linear;
+    font: inherit;
+    color: inherit;
+    text-transform: none;
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+    overflow: visible;
 }
+.hamburger.is-active .hamburger-inner,
+.hamburger.is-active .hamburger-inner::before,
+.hamburger.is-active .hamburger-inner::after { background-color: $app-fg-light; }
+
+.hamburger-box {
+    width: 40px;
+    height: 24px;
+    display: inline-block;
+    position: relative;
+}
+.hamburger-inner {
+    display: block;
+    top: 50%;
+    margin-top: -2px;
+}
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+    width: 40px;
+    height: 4px;
+    background-color: $app-fg-light;
+    border-radius: 4px;
+    position: absolute;
+    transition-property: transform;
+    transition-duration: 0.15s;
+    transition-timing-function: ease;
+}
+.hamburger-inner::before, .hamburger-inner::after {
+    content: "";
+    display: block;
+}
+.hamburger-inner::before { top: -10px; }
+.hamburger-inner::after { bottom: -10px; }
+
+.hamburger--squeeze .hamburger-inner {
+    transition-duration: 0.075s;
+    transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+.hamburger--squeeze .hamburger-inner::before {
+    transition: top 0.075s 0.12s ease, opacity 0.075s ease; }
+.hamburger--squeeze .hamburger-inner::after {
+    transition: bottom 0.075s 0.12s ease, transform 0.075s cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+
+.hamburger--squeeze.is-active .hamburger-inner {
+    transform: rotate(45deg);
+    transition-delay: 0.12s;
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
+.hamburger--squeeze.is-active .hamburger-inner::before {
+    top: 0;
+    opacity: 0;
+    transition: top 0.075s ease, opacity 0.075s 0.12s ease; }
+.hamburger--squeeze.is-active .hamburger-inner::after {
+    bottom: 0;
+    transform: rotate(-90deg);
+    transition: bottom 0.075s ease, transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1); }
 /* ======== NAVBAR ======== */
 
 
@@ -598,9 +684,6 @@ form .btn{
 #main-footer {
     height: $header-height;
     background: $app-tertiary-color;
-
-    margin-top: env(--safe-area-inset-bottom);
-    margin-bottom: env(--safe-area-inset-bottom);
 
     position: relative;
     bottom: 0;
@@ -782,46 +865,6 @@ form .btn{
     padding: 15px 10px;
     display: flex;
     flex-direction: column;
-
-    .form-group {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 10px;
-
-        label { width: fit-content; font-weight: bold; cursor: pointer; }
-
-        input, textarea {
-            appearance: none;
-
-            &:not(input[type='submit']) {
-                padding: 7px 5px 5px 5px;
-                background: $app-tertiary-color;
-                border: 0.15rem solid $app-tertiary-color;
-                border-radius: $app-border-radius;
-                outline: none;
-                transition: all 300ms;
-
-                &:focus {
-                    border-bottom: 0.15rem solid $color-brand-default;
-                    border-radius: 0;
-                }
-            }
-        }
-
-        textarea {
-            resize: vertical;
-            height: 250px;
-            max-height: 500px;
-        }
-    }
-    .form-group:last-child {
-        height: 100%;
-        margin-bottom: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
 }
 
 .icon-button-list {
@@ -885,10 +928,10 @@ form .btn{
 @media only screen and (min-width: 801px) {
     .mobile-unhide { display: none; }
 
-    .mobile-show { height: 0!important; overflow: hidden!important;}
+    .mobile-show { width: 0!important; overflow: hidden!important;}
 }
 @media only screen and (max-width: 800px) {
-    #main-nav { .nav-list { display: none; } }
+    #main-nav { .nav-list { display: none } }
 
     .mobile-unhide { display: flex; }
 }
@@ -930,10 +973,10 @@ form .btn{
 
     .screen {
         height: auto;
-        min-height: calc(100vh - 80px);
-        top: 80px;
+        min-height: calc(100vh - #{$header-height});
+        top: $header-height;
         bottom: 0;
-        padding-bottom: 80px;
+        padding-bottom: $header-height;
     }
 }
 /* ======== PHONES & SMALL SIZED SCREENS  ======== */

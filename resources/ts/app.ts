@@ -3,14 +3,10 @@ require('./../js/bootstrap')
 document.addEventListener('DOMContentLoaded', (vent) => {
     let mobileMenu = document.getElementById('mobilenav')!
 
-    let btnShowMobileMenu = document.getElementById('mobile-menu-show')!
-    btnShowMobileMenu.addEventListener('click', (event) => {
+    let btnToggleMobileMenu = document.getElementById('mobile-menu-toggle')!
+    btnToggleMobileMenu.addEventListener('click', (event) => {
         toggleClass(mobileMenu, 'mobile-show')
-    })
-
-    let btnHideMobileMenu = document.getElementById('mobile-menu-hide')!
-    btnHideMobileMenu.addEventListener('click', (event) => {
-        toggleClass(mobileMenu, 'mobile-show')
+        toggleClass(btnToggleMobileMenu, 'is-active')
     })
 
     let btnUser = document.getElementsByName('user-btn')
