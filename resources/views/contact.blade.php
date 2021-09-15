@@ -89,26 +89,6 @@
                             </li>
                         </ul>
                     </section>
-
-                    <section class="flex-section flex-bottom" id="impressum">
-                        <h1 class="section-title">Impressum</h1>
-                        <div class="card card-no-hover pd-10">
-                            <div class="fl fl-col">
-                                <h2>Name</h2>
-                                <p>Dimitri Kaiser</p>
-                            </div>
-                            <div class="fl fl-col">
-                                <h2>Address</h2>
-                                <p>Schlesienstr. 11</p>
-                                <p>97828 Marktheidenfeld</p>
-                                <p>Germany</p>
-                            </div>
-                            <div class="fl fl-col">
-                                <h2>Email</h2>
-                                <p>dev@darkyne.com</p>
-                            </div>
-                        </div>
-                    </section>
                 </div>
             </div>
         </div>
