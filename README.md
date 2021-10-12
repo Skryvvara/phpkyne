@@ -1,4 +1,9 @@
-![img](https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/26/264294e4bb10e46f7ab4b093e0f68448f5ee30c9_full.jpg)
+<div align=center>
+    <h1>Darkyne.com / PHPkyne</h1>
+</div>
 
-##[Darkyne.com](https://darkyne.com)
-This is the source repository for the website darkyne.com witch serves as my personal website.
+## This repository has moved and is now called [Vuekyne](https://github.com/xdarkyne/vuekyne). 
+Vuekyne is a rework of darkyne.com (PHPkyne) using Vue3, typescript, express and scss. This project was created to learn webdevelopment since I don't need authentication on my portfolio and I wanted to learn Vue I decided to rewrite the portfolio using a different tech stack. Vuekyne is now cleaner, faster, prettier, better. 
+
+## Description
+This was my first attempt at Web-Development using PHP (Laravel to be exact), html, scss and TypeScript. I created this as my personal portfolio learning the use of databases, authentication, typescript, apis and more along the way.
