@@ -1,5 +1,5 @@
 <div align=center>
-    <h1>Darkyne.com / PHPkyne</h1>
+    <h1>PHPkyne</h1>
 </div>
 
 ## This repository has moved and is now called [Vuekyne](https://github.com/xdarkyne/vuekyne). 
